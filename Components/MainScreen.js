@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         marginRight: 110,
         justifyContent: 'flex-start',
         marginTop: 30,
-        borderWidth: 1,
+       
     },
 
 

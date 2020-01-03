@@ -1,13 +1,16 @@
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable no-undef */
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, ImageBackground } from 'react-native';
+import firebase from 'firebase';
 export default class Card extends Component {
     render() {
         return (
             <View>
                 <View style={styles.Card}>
-                    <View style  =   {{marginTop :7 , marginStart : 4 , marginEnd : 4}}>
-                        <ImageBackground style={{ width: '100%', height: 200 , position : 'relative' }} source={require('../Images/Untitled.png')} />
+                    <View style={{ marginTop: 25, marginStart: 25, marginEnd: 25 }}>
+                        <ImageBackground style={{ width: '100%', height: 200, position: 'relative' }} source={require('../Images/Untitled.png')} />
                     </View>
                     <Text style={styles.CardHeading}>Codey </Text>
                     <View>
@@ -25,15 +28,11 @@ const styles = StyleSheet.create({
     Card: {
         marginRight: 10,
         marginLeft: 10,
-        borderBottomStartRadius: 10,
-        borderBottomEndRadius: 10,
-        borderTopStartRadius: 10,
-        borderTopEndRadius: 1,
-        // paddingStart: 15,
-        // paddingTop: 15,
-        // paddingBottom: 15,
-        // paddingRight: 5,
-        marginBottom: 12,
+        marginBottom : 10,
+        borderBottomStartRadius: 15,
+        borderBottomEndRadius: 15,
+        borderTopStartRadius: 15,
+        borderTopEndRadius: 14,
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
     },
 
     CardHeading: {
-        marginTop: 10,
+        marginTop: 20,
         marginStart: 15,
         fontSize: 40,
     },

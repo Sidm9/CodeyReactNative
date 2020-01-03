@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import SafeAreaView from 'react-native-safe-area-view';
 import Card from './Card';
 export default class MainScreen extends Component {
     render() {

@@ -20,13 +20,9 @@ export default class MainScreen extends Component {
                         </View>  */}
                         <Card />
                         <Card />
-                    
-                       
                     </View>
                 </ScrollView>
             </SafeAreaView>
-
-
         );
     }
 }
@@ -58,8 +54,5 @@ const styles = StyleSheet.create({
         marginRight: 110,
         justifyContent: 'flex-start',
         marginTop: 30,
-       
     },
-
-
 });

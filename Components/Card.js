@@ -1,9 +1,11 @@
+/* eslint-disable jsx-quotes */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable no-undef */
 /* eslint-disable prettier/prettier */
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Text, View, StyleSheet, ImageBackground } from 'react-native';
 import firebase from 'firebase';
+import { Button } from 'native-base';
 export default class Card extends Component {
     render() {
         return (
@@ -14,7 +16,7 @@ export default class Card extends Component {
                     </View>
                     <Text style={styles.CardHeading}>Codey </Text>
                     <View>
-                        <Text style={styles.CardText}>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</Text>
+                        <Text style={styles.CardText}  ellipsizeMode = 'tail'  numberOfLines ={5}>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. </Text>
                     </View>
                 </View>
             </View>

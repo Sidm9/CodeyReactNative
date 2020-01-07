@@ -4,6 +4,7 @@ import StackNavigator from 'react-navigation';
 import { View, Text, StyleSheet } from 'react-native';
 import MainScreen from "./Components/MainScreen";
 import Loader from "./Components/Loader";
+import NewPost from './Components/NewPost';
 import { createAppContainer } from 'react-navigation';
 
 import { createStackNavigator } from 'react-navigation-stack';
@@ -19,7 +20,15 @@ const MainNavigator = createStackNavigator({
     navigationOptions: {
       header: null,
     }
+  },
+  Screen3: {
+    screen: NewPost,
+    navigationOptions: {
+      header: null,
+      cardStyle: { backgroundColor: '#FFFFFF' },
+    }
   }
+
 });
 const navigationOptions = {header : 'none'};
 const App = createAppContainer(MainNavigator);

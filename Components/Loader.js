@@ -7,7 +7,7 @@ export default class Loader extends Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <View style = {{ flex : 1 , backgroundColor: 'black' , justifyContent :"center", alignItems : 'center'}}>
+            <View style = {{ flex : 1 , backgroundColor: 'black' , justifyContent :'center', alignItems : 'center'}}>
                 <Button rounded onPress={
                     () => navigate('Screen2', {})
                 }>

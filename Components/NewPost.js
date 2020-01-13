@@ -7,42 +7,50 @@ import { View } from 'react-native';
 import { Text, Form, Item, Input, Button } from 'native-base';
 import firebase from 'firebase';
 import * as Firebase from '../Components/Fire';
+import { ToastAndroid } from 'react-native';
+import Card from './Card';
 export default class FormExample extends Component {
 
     constructor(props) {
-
         super(props);
-
         this.state = {
             Title: '',
             Content: '',
-            counter: 1,
         };
     }
-    increment() {
-        this.setState({ counter: this.state.counter + 1 });
-    }
-
-
     writeToDB() {
-
-        console.log('H1');
-        firebase.database().ref('Posts').child(this.state.counter).set({
-            Title: this.state.Title,
-            Content: this.state.Content,
-        }).then(() => {
-            console.log('Inserted');
-            this.increment();
-        }).catch((error) => {
-            console.log(error);
-        });
+        if (this.state.Content.trim() !== '' && this.state.Title.trim() !== '') {
+            var newPostKey = firebase.database().ref().child('posts').push().key;
+            firebase.database().ref('posts/ ' + newPostKey).set({
+                Title: this.state.Title,
+                Content: this.state.Content,
+            }).then(() => {
+                ToastAndroid.show('Done!!!', ToastAndroid.SHORT);
+            }).catch((error) => {
+                console.log(error);
+            });
+        }
+        else {
+            ToastAndroid.show('Data Empty! Cannot send.', ToastAndroid.SHORT);
+            return;
+        }
     }
 
+    // componentDidMount() {
+    //     recieveFromDB() {
+    //         firebase.database().ref('posts/' + newPostKey).set
+    //     }
+    // }
 
     render() {
         return (
-            <View style={{ alignItems: 'stretch' }}>
+            <View style={{ flex: 1 }}>
 
+                <View style={{ alignItems: 'baseline' }} >
+                    <Text style={{
+                        fontSize: 60, fontFamily: 'Open Sans', fontWeight: 'bold', marginTop: 30, justifyContent: 'center', alignItems: 'baseline',
+                    }}> New post </Text>
+                </View>
                 <Form>
                     <Item>
                         <Input onChangeText={text => this.setState({ Title: text })} placeholder="Title" />

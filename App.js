@@ -2,8 +2,8 @@
 import React from 'react';
 import StackNavigator from 'react-navigation';
 import { View, Text, StyleSheet } from 'react-native';
-import MainScreen from "./Components/MainScreen";
-import Loader from "./Components/Loader";
+import MainScreen from './Components/MainScreen';
+import Loader from './Components/Loader';
 import NewPost from './Components/NewPost';
 import { createAppContainer } from 'react-navigation';
 
@@ -12,25 +12,29 @@ const MainNavigator = createStackNavigator({
   Screen1: {
     screen: Loader,
     navigationOptions: {
-      header: null,
-    }
+      headerShown: false,
+    },
   },
   Screen2: {
     screen: MainScreen,
     navigationOptions: {
-      header: null,
-    }
+      headerShown: false,
+    },
   },
   Screen3: {
     screen: NewPost,
     navigationOptions: {
-      header: null,
+      headerShown: false,
       cardStyle: { backgroundColor: '#FFFFFF' },
-    }
-  }
+    },
+  },
 
 });
-const navigationOptions = {header : 'none'};
+const navigationOptions = {
+  header: ({ goBack }) => ({
+    left: (<Icon name={'chevron-left'} onPress={() => { goBack() }} />),
+  }),
+};
 const App = createAppContainer(MainNavigator);
 
 export default App;

@@ -2,7 +2,7 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable prettier/prettier */
-import React, { Component } from 'react';
+import React, { Component , useState  } from 'react';
 import { View } from 'react-native';
 import { Text, Form, Item, Input, Button } from 'native-base';
 import firebase from 'firebase';
@@ -26,6 +26,7 @@ export default class FormExample extends Component {
                 Content: this.state.Content,
             }).then(() => {
                 ToastAndroid.show('Done!!!', ToastAndroid.SHORT);
+                this.recieveFromDB();
             }).catch((error) => {
                 console.log(error);
             });
@@ -37,26 +38,31 @@ export default class FormExample extends Component {
     }
 
     // componentDidMount() {
-    //     recieveFromDB() {
-    //         firebase.database().ref('posts/' + newPostKey).set
-    //     }
-    // }
+    recieveFromDB() {
+        firebase.database().ref.on('child_added', function (snapshot, prevChildKey) {
+            var newPost = snapshot.val();
+            ToastAndroid.show('Author: ' + newPost.author, ToastAndroid.SHORT);
+            console.log('Title: ' + newPost.title);
+            console.log('Previous Post ID: ' + prevChildKey);
+        });
+    }
+    //}
 
     render() {
         return (
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, backgroundColor: 'black' }}>
 
                 <View style={{ alignItems: 'baseline' }} >
                     <Text style={{
-                        fontSize: 60, fontFamily: 'Open Sans', fontWeight: 'bold', marginTop: 30, justifyContent: 'center', alignItems: 'baseline',
+                        fontSize: 60, fontFamily: 'Open Sans', fontWeight: 'bold', marginTop: 30, justifyContent: 'center', alignItems: 'baseline', color: 'white'
                     }}> New post </Text>
                 </View>
                 <Form>
                     <Item>
-                        <Input onChangeText={text => this.setState({ Title: text })} placeholder="Title" />
+                        <Input style={{ color: 'white' }} onChangeText={text => this.setState({ Title: text })} placeholder="Title" />
                     </Item>
                     <Item last>
-                        <Input onChangeText={text => this.setState({ Content: text })} placeholder="Type Content Here ..." />
+                        <Input style={{ color: 'white' }} onChangeText={text => this.setState({ Content: text })} placeholder="Type Content Here ..." />
                     </Item>
                     <Button onPress={() => this.writeToDB()}><Text>Okay Post It</Text></Button>
                 </Form>

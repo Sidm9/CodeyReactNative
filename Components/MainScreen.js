@@ -25,6 +25,8 @@ export default class MainScreen extends Component {
                         <Card />
                         <Card />
                         <Card />
+                        <Card />
+                        <Card />
                     </View>
                 </ScrollView>
             </SafeAreaView >
@@ -38,13 +40,14 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto',
 
 
-        //backgroundColor: '#292626',
+        backgroundColor: 'black',
         // alignItems: 'center',
         // justifyContent: 'center',
     },
     Header: {
         fontWeight: 'bold',
         fontSize: 60,
+        color: 'white',
 
     },
     HeadeerAlt: {
@@ -54,7 +57,7 @@ const styles = StyleSheet.create({
     SubHeading: {
         fontWeight: 'bold',
         fontSize: 20,
-
+        color: 'white',
     },
 
     btn: {

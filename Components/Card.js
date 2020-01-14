@@ -12,7 +12,7 @@ export default class Card extends React.Component {
         super(props);
 
         this.state = ({
-            cardcontents: []
+            cardcontents: [],
         });
     }
 
@@ -20,12 +20,12 @@ export default class Card extends React.Component {
         return (
             <View>
                 <View style={styles.Card}>
-                    <View style={{ marginTop: 25, marginStart: 25, marginEnd: 25 }}>
+                    <View style={{ marginTop: 25, marginStart: 25, marginEnd: 25}}>
                         <ImageBackground style={{ width: '100%', height: 200, position: 'relative' }} source={require('../Images/Untitled.png')} />
                     </View>
                     <Text style={styles.CardHeading}>Codey </Text>
                     <View>
-                        <Text style={styles.CardText} ellipsizeMode='tail' numberOfLines={5}> </Text>
+                        <Text style={styles.CardText} ellipsizeMode='tail' numberOfLines={5} />
                     </View>
                 </View>
             </View>
@@ -37,6 +37,9 @@ const styles = StyleSheet.create({
 
 
     Card: {
+        borderColor : 'white',
+        borderWidth : 1,
+        //backgroundColor: 'white',
         marginRight: 10,
         marginLeft: 10,
         marginBottom: 10,
@@ -59,6 +62,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginStart: 15,
         fontSize: 40,
+        color: 'white',
     },
 
     CardText: {
@@ -68,5 +72,5 @@ const styles = StyleSheet.create({
         marginEnd: 15,
         marginBottom: 15,
         alignSelf: 'stretch',
-    }
+    },
 });

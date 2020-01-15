@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-quotes */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable no-undef */
@@ -20,7 +21,7 @@ export default class Card extends React.Component {
         return (
             <View>
                 <View style={styles.Card}>
-                    <View style={{ marginTop: 25, marginStart: 25, marginEnd: 25}}>
+                    <View style={{ marginTop: 25, marginStart: 25, marginEnd: 25 }}>
                         <ImageBackground style={{ width: '100%', height: 200, position: 'relative' }} source={require('../Images/Untitled.png')} />
                     </View>
                     <Text style={styles.CardHeading}>Codey </Text>
@@ -37,8 +38,8 @@ const styles = StyleSheet.create({
 
 
     Card: {
-        borderColor : 'white',
-        borderWidth : 1,
+        borderColor: 'white',
+        borderWidth: 1,
         //backgroundColor: 'white',
         marginRight: 10,
         marginLeft: 10,

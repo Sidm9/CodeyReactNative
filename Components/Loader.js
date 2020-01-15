@@ -9,7 +9,7 @@ export default class Loader extends Component {
         return (
             <View style = {{ flex : 1 , backgroundColor: 'black' , justifyContent :'center', alignItems : 'center'}}>
                 <Button rounded onPress={
-                    () => navigate('Screen2', {})
+                    () => navigate('ScreenMainScreen', {})
                 }>
                     <Text style = {{fontSize : 20}} >Primary</Text>
                 </Button>

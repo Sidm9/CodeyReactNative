@@ -4,24 +4,30 @@ import StackNavigator from 'react-navigation';
 import { View, Text, StyleSheet } from 'react-native';
 import MainScreen from './Components/MainScreen';
 import Loader from './Components/Loader';
+//import Login from './Components/Login';
 import NewPost from './Components/NewPost';
 import { createAppContainer } from 'react-navigation';
-
 import { createStackNavigator } from 'react-navigation-stack';
 const MainNavigator = createStackNavigator({
-  Screen1: {
+  ScreenDefaultForNow: {
     screen: Loader,
     navigationOptions: {
       headerShown: false,
     },
   },
-  Screen2: {
+  // ScreenLogin: {
+  //   screen: Login,
+  //   navigationOptions: {
+  //     headerShown: false,
+  //   },
+  // },
+  ScreenMainScreen: {
     screen: MainScreen,
     navigationOptions: {
       headerShown: false,
     },
   },
-  Screen3: {
+  ScreenNewPost: {
     screen: NewPost,
     navigationOptions: {
       headerShown: false,
@@ -32,7 +38,7 @@ const MainNavigator = createStackNavigator({
 });
 const navigationOptions = {
   header: ({ goBack }) => ({
-    left: (<Icon name={'chevron-left'} onPress={() => { goBack() }} />),
+   // left: (<Icon name={'chevron-left'} onPress={() => { goBack() }} />),
   }),
 };
 const App = createAppContainer(MainNavigator);

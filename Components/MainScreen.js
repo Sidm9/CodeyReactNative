@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 import { View, StyleSheet, ScrollView, Button, Text } from 'react-native';
@@ -14,10 +15,10 @@ export default class MainScreen extends Component {
                             <Text style={styles.Header}>Codey</Text>
                             <Text style={styles.SubHeading}> Your Daily Digest</Text>
                             <View style={styles.btn}>
-                                <Button
+                                <Button rounded
                                     onPress={this.onPressButton}
                                     title="New Post"
-                                    onPress={() => navigate('Screen3', {})}
+                                    onPress={() => navigate('ScreenNewPost', {})}
                                     color="#009933" />
                             </View>
                         </View>
@@ -38,8 +39,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         fontFamily: 'Roboto',
-
-
         backgroundColor: 'black',
         // alignItems: 'center',
         // justifyContent: 'center',

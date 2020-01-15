@@ -2,7 +2,7 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable prettier/prettier */
-import React, { Component , useState  } from 'react';
+import React, { Component, useState } from 'react';
 import { View } from 'react-native';
 import { Text, Form, Item, Input, Button } from 'native-base';
 import firebase from 'firebase';
@@ -14,8 +14,9 @@ export default class FormExample extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            Title: '',
+            Title: 'Tittleee',
             Content: '',
+            posts: [],
         };
     }
     writeToDB() {
@@ -39,22 +40,36 @@ export default class FormExample extends Component {
 
     // componentDidMount() {
     recieveFromDB() {
-        firebase.database().ref.on('child_added', function (snapshot, prevChildKey) {
-            var newPost = snapshot.val();
-            ToastAndroid.show('Author: ' + newPost.author, ToastAndroid.SHORT);
-            console.log('Title: ' + newPost.title);
-            console.log('Previous Post ID: ' + prevChildKey);
+        const root = firebase.database.ref();
+        const posts = root.child('Posts');
+        posts.on('value', (childsnapshot) => {
+            childsnapshot.forEach((doc) => {
+                posts.push({
+                    key: this.newPostKey,
+                    title: doc.toJSON().Title,
+                });
+                this.setState({
+                    posts: posts,
+                    loading: false,
+                });
+            });
+
+            for (let i = 0; i < posts.length; i++) {
+                console.log(posts[i]);
+                
+            }
         });
     }
     //}
 
     render() {
+        const { navigate } = this.props.navigation;
         return (
             <View style={{ flex: 1, backgroundColor: 'black' }}>
 
                 <View style={{ alignItems: 'baseline' }} >
                     <Text style={{
-                        fontSize: 60, fontFamily: 'Open Sans', fontWeight: 'bold', marginTop: 30, justifyContent: 'center', alignItems: 'baseline', color: 'white'
+                        fontSize: 60, fontFamily: 'Open Sans', fontWeight: 'bold', marginTop: 30, justifyContent: 'center', alignItems: 'baseline', color: 'white',
                     }}> New post </Text>
                 </View>
                 <Form>
@@ -64,7 +79,7 @@ export default class FormExample extends Component {
                     <Item last>
                         <Input style={{ color: 'white' }} onChangeText={text => this.setState({ Content: text })} placeholder="Type Content Here ..." />
                     </Item>
-                    <Button onPress={() => this.writeToDB()}><Text>Okay Post It</Text></Button>
+                    <Button onPress={() => (this.writeToDB() ,  navigate('Screen2', {})) }><Text>Okay Post It</Text></Button>
                 </Form>
             </View>
         );

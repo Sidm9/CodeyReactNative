@@ -39,27 +39,27 @@ export default class FormExample extends Component {
     }
 
     // componentDidMount() {
-    recieveFromDB() {
-        const root = firebase.database.ref();
-        const posts = root.child('Posts');
-        posts.on('value', (childsnapshot) => {
-            childsnapshot.forEach((doc) => {
-                posts.push({
-                    key: this.newPostKey,
-                    title: doc.toJSON().Title,
-                });
-                this.setState({
-                    posts: posts,
-                    loading: false,
-                });
-            });
+    // recieveFromDB() {
+    //     const root = firebase.database.ref();
+    //     const posts = root.child('Posts');
+    //     posts.on('value', (childsnapshot) => {
+    //         childsnapshot.forEach((doc) => {
+    //             posts.push({
+    //                 key: this.newPostKey,
+    //                 title: doc.toJSON().Title,
+    //             });
+    //             this.setState({
+    //                 posts: posts,
+    //                 loading: false,
+    //             });
+    //         });
 
-            for (let i = 0; i < posts.length; i++) {
-                console.log(posts[i]);
+    //         for (let i = 0; i < posts.length; i++) {
+    //             console.log(posts[i]);
                 
-            }
-        });
-    }
+    //         }
+    //     });
+    // }
     //}
 
     render() {

@@ -15,6 +15,8 @@ export default class Card extends React.Component {
         this.state = ({
             cardcontents: [],
         });
+
+        console.log(this.props.content);
     }
 
     render() {
@@ -24,9 +26,9 @@ export default class Card extends React.Component {
                     <View style={{ marginTop: 25, marginStart: 25, marginEnd: 25 }}>
                         <ImageBackground style={{ width: '100%', height: 200, position: 'relative' }} source={require('../Images/Untitled.png')} />
                     </View>
-                    <Text style={styles.CardHeading}>Codey </Text>
+                    <Text style={styles.CardHeading}>{this.props.title} </Text>
                     <View>
-                        <Text style={styles.CardText} ellipsizeMode='tail' numberOfLines={5} />
+                        <Text style={styles.CardText} ellipsizeMode='tail' numberOfLines={5}>{this.props.content}</Text>
                     </View>
                 </View>
             </View>
@@ -68,6 +70,7 @@ const styles = StyleSheet.create({
 
     CardText: {
         fontSize: 15,
+        color: 'white',
         marginTop: 10,
         marginStart: 15,
         marginEnd: 15,

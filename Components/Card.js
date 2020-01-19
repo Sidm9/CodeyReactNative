@@ -1,3 +1,4 @@
+/* eslint-disable eslint-comments/no-unused-disable */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-quotes */
 /* eslint-disable react-native/no-inline-styles */
@@ -41,11 +42,10 @@ const styles = StyleSheet.create({
 
     Card: {
         borderColor: 'white',
-        borderWidth: 1,
-        //backgroundColor: 'white',
-        marginRight: 10,
-        marginLeft: 10,
-        marginBottom: 10,
+       // borderWidth: 1,
+        marginRight: 1,
+        marginLeft: 1,
+        marginBottom: 1,
         borderBottomStartRadius: 15,
         borderBottomEndRadius: 15,
         borderTopStartRadius: 15,

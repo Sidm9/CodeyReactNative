@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
@@ -13,8 +14,11 @@ export default class MainScreen extends Component {
             posts : [],
         };
 
-    
-
+        function wait(timeout) {
+            return new Promise(resolve => {
+              setTimeout(resolve, timeout);
+            });
+          }
     }
 
     populateData(list){
@@ -31,18 +35,9 @@ export default class MainScreen extends Component {
             v.forEach(val=>{
                 post.push(val.val());
             });
-
-           // console.log(post);
             this.setState({
                 posts: post,
             });
-
-           // console.log(this.state.posts);
-
-          //  this.populateData(post);
-            // this.setState(()=>{
-            //     this.state.posts = this.state.posts.push(v);
-            // });
         });
 
     }
@@ -69,7 +64,6 @@ export default class MainScreen extends Component {
                                     color="#009933" />
                             </View>
                         </View>
-
                         {lapsList}
                     </View>
                 </ScrollView>
@@ -83,8 +77,6 @@ const styles = StyleSheet.create({
         flex: 1,
         fontFamily: 'Roboto',
         backgroundColor: 'black',
-        // alignItems: 'center',
-        // justifyContent: 'center',
     },
     Header: {
         fontWeight: 'bold',
@@ -101,7 +93,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'white',
     },
-
     btn: {
         marginTop: 10,
         alignContent: 'center',

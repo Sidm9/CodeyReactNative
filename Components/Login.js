@@ -1,14 +1,32 @@
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/self-closing-comp */
 /* eslint-disable no-trailing-spaces */
+/* eslint-disable eslint-comments/no-unused-disable */
+/* eslint-disable eol-last */
+/* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
-import React, { Component , View, ImageBackground, Button, StyleSheet, Text, Input, Icon } from 'react-native';
-import {  } from 'native-base';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, ImageBackground, Button, Text, Input, Icon } from 'react-native';
+//import { Form, Item, Input, Label } from 'native-base';
 
-export default class Login extends Component {
-    render() {
-        const { navigate } = this.props.navigation;
-        return (
+export default function Login() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+    const [helperText, setHelperText] = useState(false);
+    const [error, setError] = useState(false);
+
+    useEffect(() => {
+        if (username.trim() && password.trim()) {
+            // setIsButtonDisabled(false);
+        }
+        else {
+            //  setIsButtonDisabled(true);
+        }
+    }, [username, password]);
+
+    const { navigate } = this.props.navigation;
+    return (
+        <View>
             <ImageBackground source={{ uri: 'https://mcdn.wallpapersafari.com/medium/91/33/PluA2I.jpg' }} blurRadius={0} style={{ width: '100%', height: '100%' }}>
                 <View style={styles.container}>
                     <View style={styles.Top}>
@@ -67,10 +85,10 @@ export default class Login extends Component {
                     </View>
                 </View>
             </ImageBackground>
-        );
-    }
-}
+        </View>
+    );
 
+}
 
 const styles = StyleSheet.create({
 
@@ -128,4 +146,5 @@ const styles = StyleSheet.create({
     },
 
 });
+
 

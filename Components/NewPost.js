@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable react/self-closing-comp */
@@ -37,31 +38,6 @@ export default class FormExample extends Component {
             return;
         }
     }
-
-    // componentDidMount() {
-    // recieveFromDB() {
-    //     const root = firebase.database.ref();
-    //     const posts = root.child('Posts');
-    //     posts.on('value', (childsnapshot) => {
-    //         childsnapshot.forEach((doc) => {
-    //             posts.push({
-    //                 key: this.newPostKey,
-    //                 title: doc.toJSON().Title,
-    //             });
-    //             this.setState({
-    //                 posts: posts,
-    //                 loading: false,
-    //             });
-    //         });
-
-    //         for (let i = 0; i < posts.length; i++) {
-    //             console.log(posts[i]);
-                
-    //         }
-    //     });
-    // }
-    //}
-
     render() {
         const { navigate } = this.props.navigation;
         return (
@@ -79,7 +55,7 @@ export default class FormExample extends Component {
                     <Item last>
                         <Input style={{ color: 'white' }} onChangeText={text => this.setState({ Content: text })} placeholder="Type Content Here ..." />
                     </Item>
-                    <Button onPress={() => (this.writeToDB() ,  navigate('Screen2', {})) }><Text>Okay Post It</Text></Button>
+                    <Button onPress={() => (this.writeToDB() , navigate('Screen2', {})) }><Text>Okay Post It</Text></Button>
                 </Form>
             </View>
         );

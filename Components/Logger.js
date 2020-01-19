@@ -9,15 +9,26 @@ import LoginBG from '../Images/LoginWallpaper.jpg';
 import { View, ImageBackground, Button, StyleSheet, Text, StatusBar } from 'react-native';
 import { H1, Icon, Input, Item, Label } from 'native-base';
 import { ScrollView } from 'react-native-gesture-handler';
+import firebase from 'firebase';
 export default class SignUp extends Component {
+    state = { 
+    email: '', 
+    password: '', 
+    errorMessage: null }
+
+    handleSignUp = () => {
+       
+        console.log('handleSignUp');
+      }
+
     render() {
         const { navigate } = this.props.navigation;
         return (
-           
-                <ImageBackground source={require('../Images/LoginWallpaper.jpg')} blurRadius={1} style={{ width: '100%', height: '100%' }}>
+
+            <ImageBackground source={require('../Images/LoginWallpaper.jpg')} blurRadius={0.3} style={{ width: '100%', height: '100%' }}>
                 <ScrollView>
                     <View style={styles.container}>
-                    <StatusBar backgroundColor="black" barStyle="light-content" />
+                        <StatusBar backgroundColor="black" barStyle="light-content" />
                         <View style={styles.Top}>
                             <Text style={{ color: '#ffffff', fontSize: 45, fontWeight: 'bold' }}> Welcome Back! </Text>
                             {/* <Imager /> */}
@@ -63,9 +74,9 @@ export default class SignUp extends Component {
 
                         </View>
                     </View>
-                    </ScrollView>
-                </ImageBackground>
-         
+                </ScrollView>
+            </ImageBackground>
+
         );
     }
 }

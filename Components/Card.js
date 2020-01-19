@@ -24,12 +24,15 @@ export default class Card extends React.Component {
         return (
             <View>
                 <View style={styles.Card}>
-                    <View style={{ marginTop: 25, marginStart: 25, marginEnd: 25 }}>
-                        <ImageBackground style={{ width: '100%', height: 200, position: 'relative' }} source={require('../Images/Untitled.png')} />
+                    <View style={{ }}>
+                         <ImageBackground style={{ width: '100%', height: 250, position: 'relative' ,  borderRadius : 20 , overflow : 'hidden' ,  }} source={require('../Images/qqqq.jpg')} />
+                         
+                        
+                         
                     </View>
                     <Text style={styles.CardHeading}>{this.props.title} </Text>
                     <View>
-                        <Text style={styles.CardText} ellipsizeMode='tail' numberOfLines={5}>{this.props.content}</Text>
+                        <Text style={styles.CardText} ellipsizeMode='tail' numberOfLines={11}>{this.props.content}</Text>
                     </View>
                 </View>
             </View>
@@ -42,10 +45,10 @@ const styles = StyleSheet.create({
 
     Card: {
         borderColor: 'white',
-       // borderWidth: 1,
-        marginRight: 1,
-        marginLeft: 1,
-        marginBottom: 1,
+        borderWidth: 0,
+        marginRight: 0,
+        marginLeft: 0,
+        marginBottom: 10,
         borderBottomStartRadius: 15,
         borderBottomEndRadius: 15,
         borderTopStartRadius: 15,
@@ -64,8 +67,10 @@ const styles = StyleSheet.create({
     CardHeading: {
         marginTop: 20,
         marginStart: 15,
-        fontSize: 40,
+        fontSize: 35,
+        fontWeight : 'bold',
         color: 'white',
+        fontFamily: 'Iowan Old Style',
     },
 
     CardText: {

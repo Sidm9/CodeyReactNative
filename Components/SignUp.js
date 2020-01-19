@@ -6,16 +6,17 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 import LoginBG from '../Images/LoginWallpaper.jpg';
-import { View, ImageBackground, ScrollView , Button, StyleSheet, Text } from 'react-native';
+import { View, ImageBackground, ScrollView , Button, StyleSheet, Text, StatusBar } from 'react-native';
 import { H1, Icon, Input, Item, Label } from 'native-base';
 export default class Login extends Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
+            
+            <ImageBackground source={require('../Images/CreateAccount.jpg')} blurRadius={0} style={{ width: '100%', height: '100%' }}>
             <ScrollView>
-            <ImageBackground source={require('../Images/CreateAccount.jpg')} blurRadius={1} style={{ width: '100%', height: '100%' }}>
                 <View style={styles.container}>
-
+                <StatusBar backgroundColor="black" barStyle="light-content" />
                     <View style={styles.Top}>
                         <Text style={{ color: '#ffffff', fontSize: 45, fontWeight: 'bold' }}> Create Account </Text>
                         {/* <Imager /> */}
@@ -80,9 +81,9 @@ export default class Login extends Component {
 
                     </View>
                 </View>
-
+                </ScrollView>
             </ImageBackground>
-            </ScrollView>
+          
         );
     }
 }

@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { View, StyleSheet, ScrollView, Button, Text } from 'react-native';
+import { View, StyleSheet, ScrollView, Button, Text, StatusBar } from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 import Card from './Card';
 import firebase from 'firebase';
@@ -53,6 +53,7 @@ export default class MainScreen extends Component {
             <SafeAreaView style={styles.container}>
                 <ScrollView style={styles.scrollView}>
                     <View style={styles.container}>
+                    <StatusBar backgroundColor="black" barStyle="light-content" />
                         <View style={styles.Top}>
                             <Text style={styles.Header}>Codey</Text>
                             <Text style={styles.SubHeading}> Your Daily Digest</Text>

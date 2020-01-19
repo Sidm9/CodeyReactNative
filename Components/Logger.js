@@ -6,7 +6,7 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 import LoginBG from '../Images/LoginWallpaper.jpg';
-import { View, ImageBackground, Button, StyleSheet, Text } from 'react-native';
+import { View, ImageBackground, Button, StyleSheet, Text, StatusBar } from 'react-native';
 import { H1, Icon, Input, Item, Label } from 'native-base';
 import { ScrollView } from 'react-native-gesture-handler';
 export default class SignUp extends Component {
@@ -17,7 +17,7 @@ export default class SignUp extends Component {
                 <ImageBackground source={require('../Images/LoginWallpaper.jpg')} blurRadius={1} style={{ width: '100%', height: '100%' }}>
                 <ScrollView>
                     <View style={styles.container}>
-
+                    <StatusBar backgroundColor="black" barStyle="light-content" />
                         <View style={styles.Top}>
                             <Text style={{ color: '#ffffff', fontSize: 45, fontWeight: 'bold' }}> Welcome Back! </Text>
                             {/* <Imager /> */}

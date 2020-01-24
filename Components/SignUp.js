@@ -6,7 +6,7 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 import LoginBG from '../Images/LoginWallpaper.jpg';
-import { View, ImageBackground, ScrollView, Button, StyleSheet, Text, StatusBar, ToastAndroid } from 'react-native';
+import { View, ImageBackground, ScrollView, TouchableHighlight, Button, StyleSheet, Text, StatusBar, ToastAndroid } from 'react-native';
 import { H1, Icon, Input, Item, Label } from 'native-base';
 import { TextInput } from 'react-native';
 import firebase from 'firebase';
@@ -17,45 +17,67 @@ export default class Login extends Component {
         password: '',
         password2: '',
         errorMessage: null,
+        flag: 0,
     }
 
-
-    componentDidMount() {
-        console.log('mounted');
+    empty() {
+        console.log("Here here");
+        fname => this.setState('');
+        email => this.setState('');
+        password => this.setState('');
+        password2 => this.setState('');
     }
-
-    // onpress() {
-    //     if (this.state.password !== this.state.password2) {
-    //         ToastAndroid.show('Passwords Does Not Match', ToastAndroid.SHORT);
-    //         this.setState({ password: '' });
-    //         this.setState({ password2: '' });
-    //     }
-    // }
-
     handleSignup() {
-        console.log("password1 is" + this.state.password);
-        console.log("password2 is" + this.state.password2);
-        console.log('aga');
-        if (this.state.password === this.state.password2) {
-            console.log("woiueghweghiru;riueghrw");
-       
 
-            
-            firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .then(v=>{
-                console.log(v);
-            }).catch(function (error) { 
-                //Handle Errors Here
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // ...
-                console.log('woeifhwefh');
-                console.log(errorMessage);
-            });
-
+        if (this.state.email.length === 0) {
+            ToastAndroid.show('Email Cannnot be empty!', ToastAndroid.SHORT);
+            this.flag.setState = 1;
+            console.log('empty 1');
+            return;
         }
-        else{
-            console.log('OK');
+        else if (this.state.fname.length === 0) {
+            ToastAndroid.show('Fname Cannnot be empty!', ToastAndroid.SHORT);
+            this.flag.setState = 1;
+            console.log('empty 2');
+            return;
+        }
+        else if (this.state.password.length === 0) {
+            ToastAndroid.show('Password Cannnot be empty!', ToastAndroid.SHORT);
+            this.flag.setState = 1;
+            console.log('empty 3');
+            return;
+        }
+        else if (this.state.password !== this.state.password2) {
+            ToastAndroid.show('Passwords Do not Match!', ToastAndroid.SHORT);
+            this.flag.setState = 1;
+            console.log('empty 4');
+            return;
+        }
+        else if (this.state.password.length < 6) {
+            ToastAndroid.show('Password is short ....', ToastAndroid.SHORT);
+            this.flag.setState = 1;
+            console.log('empty 5');
+            return;
+        }
+
+        else {
+            console.log('flag is : ' + this.state.flag);
+
+
+            // if (this.state.password === this.state.password2) {
+            //     console.log('pass are correct');
+            firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+                .then(v => {
+                    console.log(v);
+                }).catch(function (error) {
+                    //Handle Errors Here
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    // ...
+                    console.log(errorMessage);
+                });
+            console.log('all set ');
+            this.empty();
         }
     }
 
@@ -128,6 +150,7 @@ export default class Login extends Component {
                             </View>
 
                         </View>
+                        <StatusBar backgroundColor="black" barStyle="dark-content" />
                     </View>
                 </ScrollView>
             </ImageBackground >
